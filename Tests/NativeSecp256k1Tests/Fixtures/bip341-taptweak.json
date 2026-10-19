@@ -1,0 +1,44 @@
+[
+  {
+    "sourceIndex": 0,
+    "internalPubkey": "d6889cb081036e0faefa3a35157ad71086b123b2b144b649798b494c300a961d",
+    "merkleRoot": null,
+    "expectedTweak": "b86e7be8f39bab32a6f2c0443abbc210f0edac0e2c53d501b36b64437d9c6c70"
+  },
+  {
+    "sourceIndex": 1,
+    "internalPubkey": "187791b6f712a8ea41c8ecdd0ee77fab3e85263b37e1ec18a3651926b3a6cf27",
+    "merkleRoot": "5b75adecf53548f3ec6ad7d78383bf84cc57b55a3127c72b9a2481752dd88b21",
+    "expectedTweak": "cbd8679ba636c1110ea247542cfbd964131a6be84f873f7f3b62a777528ed001"
+  },
+  {
+    "sourceIndex": 2,
+    "internalPubkey": "93478e9488f956df2396be2ce6c5cced75f900dfa18e7dabd2428aae78451820",
+    "merkleRoot": "c525714a7f49c28aedbbba78c005931a81c234b2f6c99a73e4d06082adc8bf2b",
+    "expectedTweak": "6af9e28dbf9d6aaf027696e2598a5b3d056f5fd2355a7fd5a37a0e5008132d30"
+  },
+  {
+    "sourceIndex": 3,
+    "internalPubkey": "ee4fe085983462a184015d1f782d6a5f8b9c2b60130aff050ce221ecf3786592",
+    "merkleRoot": "6c2dc106ab816b73f9d07e3cd1ef2c8c1256f519748e0813e4edd2405d277bef",
+    "expectedTweak": "9e0517edc8259bb3359255400b23ca9507f2a91cd1e4250ba068b4eafceba4a9"
+  },
+  {
+    "sourceIndex": 4,
+    "internalPubkey": "f9f400803e683727b14f463836e1e78e1c64417638aa066919291a225f0e8dd8",
+    "merkleRoot": "ab179431c28d3b68fb798957faf5497d69c883c6fb1e1cd9f81483d87bac90cc",
+    "expectedTweak": "639f0281b7ac49e742cd25b7f188657626da1ad169209078e2761cefd91fd65e"
+  },
+  {
+    "sourceIndex": 5,
+    "internalPubkey": "e0dfe2300b0dd746a3f8674dfd4525623639042569d829c7f0eed9602d263e6f",
+    "merkleRoot": "ccbd66c6f7e8fdab47b3a486f59d28262be857f30d4773f2d5ea47f7761ce0e2",
+    "expectedTweak": "b57bfa183d28eeb6ad688ddaabb265b4a41fbf68e5fed2c72c74de70d5a786f4"
+  },
+  {
+    "sourceIndex": 6,
+    "internalPubkey": "55adf4e8967fbd2e29f20ac896e60c3b0f1d5b0efa9d34941b5958c7b0a0312d",
+    "merkleRoot": "2f6b2c5397b6d68ca18e09a3f05161668ffe93a988582d55c6f07bd5b3329def",
+    "expectedTweak": "6579138e7976dc13b6a92f7bfd5a2fc7684f5ea42419d43368301470f3b74ed9"
+  }
+]

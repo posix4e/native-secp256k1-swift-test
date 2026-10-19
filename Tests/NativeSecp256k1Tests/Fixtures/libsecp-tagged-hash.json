@@ -1,0 +1,20 @@
+[
+  {
+    "name": "empty",
+    "tag": "",
+    "messageHex": "",
+    "expectedHash": "2dba5dbc339e7316aea2683faf839c1b7b1ee2313db792112588118df066aa35"
+  },
+  {
+    "name": "long-tag",
+    "tag": "ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt",
+    "messageHex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f40",
+    "expectedHash": "e5306564af3895c9c1bdd3d68997eb88e3c3b7450c6fda40ae4340b3d53a1be8"
+  },
+  {
+    "name": "utf8-and-nul",
+    "tag": "tag\u0000\u00e9",
+    "messageHex": "00ff0080",
+    "expectedHash": "993e2a8afb22675b3d03fc2de430ff2addd8757b0152b47e4de8d3fc9ceeb88f"
+  }
+]
