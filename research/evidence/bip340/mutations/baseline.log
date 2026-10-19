@@ -1,0 +1,40 @@
+Building for debugging...
+[0/8] <work>/bip340-mutation-build/arm64-apple-macosx/debug/NativeSecp256k1PackageTests.derived/runner.swift
+[1/8] Write sources
+[4/8] Copying Fixtures
+[5/8] Write swift-version--58304C5D6DBC2206.txt
+[7/15] Compiling NativeSecp256k1 PublicPoint.swift
+[8/15] Emitting module NativeSecp256k1
+[9/15] Compiling NativeSecp256k1 ExperimentalBIP340.swift
+[10/15] Compiling NativeSecp256k1 PublicScalar.swift
+[11/15] Compiling NativeSecp256k1 TaggedSHA256.swift
+[12/15] Compiling NativeSecp256k1 ExperimentalXOnlyPublicKey.swift
+[13/15] Compiling NativeSecp256k1 PublicFieldElement.swift
+[14/23] Compiling NativeSecp256k1Tests TaggedSHA256Tests.swift
+[15/23] Compiling NativeSecp256k1Tests PublicScalarTests.swift
+[16/23] Compiling NativeSecp256k1Tests resource_bundle_accessor.swift
+[17/23] Compiling NativeSecp256k1Tests PublicFieldTests.swift
+[18/23] Compiling NativeSecp256k1Tests BIP340EdgeTests.swift
+[19/23] Compiling NativeSecp256k1Tests BIP340VerificationTests.swift
+[20/23] Compiling NativeSecp256k1Tests PublicPointTests.swift
+[21/23] Emitting module NativeSecp256k1Tests
+[22/25] Emitting module NativeSecp256k1PackageTests
+[23/25] Compiling NativeSecp256k1PackageTests runner.swift
+[23/25] Write Objects.LinkFileList
+[24/25] Linking NativeSecp256k1PackageTests
+Build complete! (5.43s)
+warning: '--build-system native' has been deprecated and will be removed in a future release; please report an issue at https://github.com/swiftlang/swift-package-manager/issues if you are unable to adopt the default build system.
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite "Independent public BIP340 signature verification" started.
+◇ Test "Nonzero-offset Data inputs preserve public key, signature and exact message bytes" started.
+◇ Test "All 19 official full-signature decisions, including arbitrary-length messages" started.
+◇ Test "Wrong public-key and signature lengths fail before arithmetic" started.
+◇ Test "Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases" started.
+✔ Test "Wrong public-key and signature lengths fail before arithmetic" passed after 0.004 seconds.
+✔ Test "Nonzero-offset Data inputs preserve public key, signature and exact message bytes" passed after 0.997 seconds.
+✔ Test "All 19 official full-signature decisions, including arbitrary-length messages" passed after 1.909 seconds.
+✔ Test "Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases" passed after 15.617 seconds.
+✔ Suite "Independent public BIP340 signature verification" passed after 15.617 seconds.
+✔ Test run with 4 tests in 1 suite passed after 15.617 seconds.

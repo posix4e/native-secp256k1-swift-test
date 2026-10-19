@@ -1,5 +1,9 @@
 # Reproducing independent public data fixtures
 
+This page describes the original field and x-only fixture generator. For full
+BIP340 signature verification and independent point arithmetic, see the
+[signature and point reproduction guide](schnorr-fixtures.md).
+
 Ordinary `swift test` uses checked-in JSON fixtures and needs no network, C build
 or Python installation. The optional regeneration path needs Git, Python 3 and
 Clang, and fetches public source at exact commits. From the package directory:

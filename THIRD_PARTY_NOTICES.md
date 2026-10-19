@@ -40,6 +40,9 @@ copied or linked into this package. The pinned oracle is attributed in
 
 
 The x-only fixture includes public-key fields from the BIP340 test vectors.
+The verification fixture additionally includes their public message, signature,
+expected-verification result and explanatory fields; it omits private-key and
+auxiliary-randomness columns. The same license selection below applies.
 BIP340 names Pieter Wuille, Jonas Nick and Tim Ruffing as authors. At pinned
 revision `927b6de9915c9262615a6399de51b200f81e5aa4`, its code and test vectors are
 available under BSD-2-Clause OR MIT OR CC0-1.0; this extraction uses CC0-1.0.

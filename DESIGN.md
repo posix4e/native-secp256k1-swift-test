@@ -3,11 +3,14 @@
 The library is an independent research implementation intended to be useful to
 Winnow and other Bitcoin applications. A possible future contribution to
 apple/swift-crypto is a design goal, not an accepted upstream feature. The
-currently implemented APIs are `TaggedSHA256.hash(tag:message:)` and
-`ExperimentalXOnlyPublicKey.init?(rawRepresentation:)`, with canonical x and
-even-y serialization. The latter uses a private, variable-time Swift field
-kernel solely for public data. All secret-key and group APIs below are future
-design work; no full BIP340 verifier is implemented yet.
+currently implemented APIs are `TaggedSHA256.hash(tag:message:)`,
+`ExperimentalXOnlyPublicKey.init?(rawRepresentation:)`, and
+`ExperimentalBIP340.verify(signature:message:publicKey:)`. The verifier uses
+distinct internal field and scalar types, Jacobian point arithmetic and
+explicit infinity/parity checks. All arithmetic is variable time and solely
+for public data. Secret-key APIs remain future work. See the
+[migration plan](research/native-swift-roadmap.md) and
+[verification evidence](research/bip340-verification-report.md).
 
 ## Library boundary
 
@@ -15,11 +18,15 @@ Keep the fixed-width secp256k1 arithmetic independent of wallet code, Apple
 account configuration, network access and persistent key storage. Use separate
 field and scalar types internally. Represent scalar zero independently of the
 nonzero private-key type, and distinguish invalid point encodings from infinity.
-No generic BigInt or custom-curve public API is planned.
+No generic BigInt or custom-curve public API is planned. `PublicScalar` permits
+zero, rejects noncanonical external values and separately reduces a 32-byte
+challenge modulo n. `PublicPoint` admits finite affine coordinates only after
+checking the curve equation; its private Jacobian initializer is restricted to
+the identity and group formulas. Infinity has no affine serialization.
 
 The eventual typed API should distinguish compressed public keys, x-only Schnorr
 keys, private keys, signatures and tweak results including parity. Verification
-operates on the supplied message bytes. The low-level BIP340 API should support
+operates on the supplied message bytes. The low-level BIP340 API supports
 the specification's arbitrary message lengths; an application's transaction
 adapter can require exactly 32 bytes. No implicit preliminary message hashing
 belongs in that adapter.

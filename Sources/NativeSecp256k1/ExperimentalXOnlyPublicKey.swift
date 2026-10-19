@@ -3,8 +3,9 @@ import Foundation
 /// An experimental validator for PUBLIC BIP340 x-only secp256k1 keys.
 ///
 /// This type checks the field range and the curve equation y² = x³ + 7 and
-/// selects the even y coordinate. It does not verify signatures or implement
-/// group operations. Its arithmetic is variable time and must never be used
+/// selects the even y coordinate. This initializer alone does not verify a
+/// signature; use `ExperimentalBIP340.verify` for that separate operation.
+/// Its arithmetic is variable time and must never be used
 /// with secret material. It has not received a cryptographic security review.
 public struct ExperimentalXOnlyPublicKey: Equatable, Sendable {
     /// The canonical 32-byte, big-endian x coordinate.

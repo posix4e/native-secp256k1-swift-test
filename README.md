@@ -1,80 +1,75 @@
-# Experimental native Swift public key validation
+# Experimental native Swift secp256k1 verification
 
-This independent research package implements BIP340 x-only public-key validation
-and tagged SHA-256. It has no Winnow dependency and declares zero third-party
-package dependencies. **The new arithmetic is variable time and only for public
-data. Do not use it for private keys, nonces or shared secrets.**
+This independent research package implements BIP340 signature verification,
+x-only public-key validation and tagged SHA-256. It has no Winnow dependency and
+declares zero third-party package dependencies. **The arithmetic is variable time
+and only for public data. Do not use it for private keys, nonces or shared secrets.**
 
-The arithmetic is native Swift. Tagged hashing uses Apple's CryptoKit; this does
-not imply the operating system's hash implementation is entirely Swift.
+The curve arithmetic is native Swift. Tagged hashing uses Apple's CryptoKit;
+this does not imply the operating system's hash implementation is entirely Swift.
 Original code is Apache-2.0; fixture provenance and notices are separate.
-
-`ExperimentalXOnlyPublicKey` accepts exactly 32 big-endian bytes, rejects x ≥ p
-and x values without a point on y² = x³ + 7, and selects the even y coordinate.
-The internal field supports canonical encoding, addition, multiplication,
-negation and square roots modulo p = 2²⁵⁶ − 2³² − 977.
+There has been no independent human cryptographic audit or production approval.
 
 ```swift
 import Foundation
 import NativeSecp256k1
 
-// publicKeyBytes is untrusted PUBLIC data, not a private scalar.
-if let key = ExperimentalXOnlyPublicKey(rawRepresentation: publicKeyBytes) {
-    let x = key.rawRepresentation       // canonical 32-byte x
-    let y = key.evenYRepresentation     // canonical 32-byte even y
-    let hash = TaggedSHA256.hash(tag: "TapTweak", message: x)
-    // hash is only a tagged hash; this package does not perform a key tweak.
-}
+// All arguments are PUBLIC data. A Bitcoin transaction adapter supplies its
+// already-computed transaction digest as message; this API does not prehash it.
+let verified = ExperimentalBIP340.verify(
+    signature: signatureBytes,  // exactly 64 bytes, r || s
+    message: messageBytes,      // arbitrary length, including empty
+    publicKey: publicKeyBytes   // exactly 32 bytes, x-only
+)
 ```
 
-There is no signature verification, signing, scalar arithmetic modulo the group
-order, point addition/multiplication, BIP32, Taproot tweaking, MuSig2 or ECDH.
-This package cannot replace Winnow's P256K dependency. Its API is experimental
-and has not received an independent human cryptographic audit.
+The verifier rejects malformed lengths, invalid public points, r ≥ p and s ≥ n.
+It computes the BIP340 challenge and R = sG − eP, then requires R to be finite,
+have even y, and have x = r. A false result is a signature-verification failure;
+it does not say which input was wrong. Verification has no signing state,
+randomness, network access or persistent storage.
 
-The package declares Swift 6.0+, iOS 17+ and macOS 14+. This pass tested only
-Apple Swift 6.4 on arm64 macOS 27.0.1. Linux, older toolchains, iOS simulators
-and physical devices are untested. From this directory, run `swift test`.
+`ExperimentalXOnlyPublicKey(rawRepresentation:)` remains available for the
+separate operation of validating a public key and exposing its canonical x and
+even-y coordinates. `TaggedSHA256.hash(tag:message:)` supplies domain-separated
+hashing. A `TapTweak` hash alone is not a tweaked key.
 
-On the research host the default Swift 6.4 build system failed while codesigning
-a generated resource bundle because of Finder/resource-fork metadata. These
-commands completed successfully with seven tests in two suites in each mode:
+Internally, field elements modulo p and scalars modulo n are distinct types.
+Public point arithmetic uses Jacobian coordinates, with explicit infinity,
+negation, addition and multiplication. Zero is a valid public scalar. None of
+these internal types is a private-key abstraction or safe for secret inputs.
+
+There is no signer, private-key derivation, BIP32 API, Taproot tweak API, MuSig2
+backend or ECDH. This milestone cannot replace Winnow's P256K dependency by
+itself. The [migration plan](research/native-swift-roadmap.md) retains the goal
+of a native Swift secp256k1 backend covering Winnow's production call surface.
+
+The package declares Swift 6.0+, iOS 17+ and macOS 14+. Run:
 
 ```sh
-swift test --build-system native --enable-code-coverage
-swift test --build-system native -c release
+swift test
+swift test -c release
 ```
 
-Swift 6.4 marks the native fallback deprecated. The default run failed before
-tests and is not counted as successful. No developer account or signing
-credentials are needed for the successful local tests.
+On the research host, Swift 6.4's default build system encountered Finder or
+resource-fork metadata under the Documents directory. An external scratch path
+avoids carrying that generated-bundle metadata into builds. The earlier pass
+used the deprecated `--build-system native` fallback. Every evidence record
+names the actual command, toolchain and scope; a failed build is not a test pass.
 
-The suite checks 2,624 Python integer arithmetic pairs, 168 root/nonresidue
-answers, 318 x-only inputs agreed by the pinned BIP340 Python reference and
-libsecp256k1, malformed lengths, noncanonical encodings and offset Data slices.
-It retains all ten tagged-hash known answers from the copied starter. The 19
-BIP340 public-key columns are key-validation inputs; these are **not** signature
-verification tests.
-
-The debug LLVM export reports 151/151 executable lines and 64/64 regions covered
-across the three library sources. Swift emitted no branch counters. Coverage is
-not exhaustive arithmetic testing, a CRAP measurement, a security audit, a timing
-result or a performance benchmark.
+The [verification milestone report](research/bip340-verification-report.md)
+records the new tests and their limits. Official signature vectors now exercise
+full verification, separately from the first pass's 318 key-validation cases.
+Generated cases use pinned external implementations and synthetic public test
+material. They do not use wallet keys. Ordinary tests read checked-in fixtures
+and do not build or link a C backend into the Swift package.
 
 See [fixture provenance](Tests/NativeSecp256k1Tests/Fixtures/README.md),
-[oracle reproduction](Tools/README.md), [design](DESIGN.md), and
-[third-party notices](THIRD_PARTY_NOTICES.md). The next milestone is complete
-public BIP340 verification, after independent tests of point operations and
-scalar parsing/reduction. Secret operations follow their own review gate.
-
-
-The [first-pass research report](research/first-pass-report.md) records the tested
-source revision and results. The [capability matrix](research/capability-scope-matrix.md),
-[independent agent review](research/arithmetic-review.md), and
-[Swift Crypto fit proposal](research/swift-crypto-fit.md) describe scope and next
-steps. Saved evidence records local macOS runs; no hosted CI result is claimed.
-This public research repository is open source under Apache-2.0, with separate
-fixture notices. It preserves the original experiment commit and its validation
-evidence. Later documentation commits do not change the tested library or fixtures.
-See [research safety and reporting](SECURITY.md) for the supported scope and how
-to describe a reproducible finding.
+[signature and point evidence](Tools/schnorr-fixtures.md),
+[oracle reproduction](Tools/README.md), [design](DESIGN.md),
+[research safety](SECURITY.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
+The historical [first-pass report](research/first-pass-report.md),
+[capability matrix](research/capability-scope-matrix.md),
+[agent arithmetic review](research/arithmetic-review.md), and
+[Swift Crypto proposal](research/swift-crypto-fit.md) describe the earlier
+revision. Their coverage numbers and conclusions do not certify this new code.

@@ -1,0 +1,42 @@
+{
+  "baselineCommit": "2ef204167972efc428486e823fc79b1f1bf0e9e7",
+  "testedFileHashes": "bip340-tested-files.json",
+  "swift": "Apple Swift 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)",
+  "xcode": "27.1 (27A9275)",
+  "architecture": "arm64",
+  "macOS": {
+    "version": "27.0.1",
+    "debug": {
+      "tests": 29,
+      "suites": 6,
+      "seconds": 20.414,
+      "coverage": true
+    },
+    "release": {
+      "tests": 29,
+      "suites": 6,
+      "seconds": 0.512
+    },
+    "buildSystem": "default; clean external scratch directory"
+  },
+  "iOSSimulator": {
+    "device": "iPhone 17 Pro",
+    "runtime": "27.0 (24A434)",
+    "sdk": "27.1",
+    "configuration": "Debug",
+    "tests": 29,
+    "failed": 0,
+    "skipped": 0,
+    "suites": 6,
+    "seconds": 17.576
+  },
+  "limitations": [
+    "No physical-device run",
+    "No iOS Release run",
+    "No oldest-deployment-version run",
+    "No secret operations or timing claim",
+    "No independent human cryptographic audit",
+    "Coverage has no Swift branch counters and is not a CRAP measurement"
+  ],
+  "originalEvidenceDate": "2026-10-19"
+}

@@ -1,0 +1,33 @@
+name: Swift public-data tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macos-26
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [debug, release]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Record toolchain
+        run: |
+          swift --version
+          xcodebuild -version
+          uname -m
+      - name: Check recorded file hashes
+        run: shasum -a 256 -c SHA256SUMS
+      - name: Test public-data implementation
+        env:
+          CONFIGURATION: ${{ matrix.configuration }}
+        run: swift test --scratch-path "$RUNNER_TEMP/native-secp-$CONFIGURATION" --configuration "$CONFIGURATION"

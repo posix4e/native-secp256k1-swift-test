@@ -1,0 +1,38 @@
+{
+  "bipsRevision": "927b6de9915c9262615a6399de51b200f81e5aa4",
+  "secp256k1Revision": "1a53f4961f337b4d166c25fce72ef0dc88806618",
+  "officialCases": 19,
+  "differentialCases": 184,
+  "officialValid": 9,
+  "differentialValid": 32,
+  "messagesBytes": [
+    0,
+    1,
+    2,
+    16,
+    17,
+    31,
+    32,
+    33,
+    63,
+    64,
+    65,
+    100,
+    127,
+    128,
+    129,
+    255,
+    256,
+    257,
+    511,
+    512,
+    513,
+    1024,
+    2048,
+    4096
+  ],
+  "hashes": {
+    "bip340-verification-official.json": "c005451e8b883b2ca7a59ea2a7485027c7cb5f3312ee4a9a3c0c45a986126b01",
+    "bip340-verification-differential.json": "6463d122bfa44e4e850ff371d724b10b157f0f129230312b8f5be0e2979433d8"
+  }
+}

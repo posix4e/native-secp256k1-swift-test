@@ -18,6 +18,10 @@ internal struct PublicFieldElement: Equatable, Sendable {
         0xbfffff0c, 0xffffffff, 0xffffffff, 0xffffffff,
         0xffffffff, 0xffffffff, 0xffffffff, 0x3fffffff,
     ] // (p + 1) / 4, since p is 3 modulo 4.
+    private static let inverseExponent: [UInt32] = [
+        0xfffffc2d, 0xfffffffe, 0xffffffff, 0xffffffff,
+        0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
+    ] // p - 2; Fermat inversion is defined only for nonzero field elements.
 
     internal static let zero = PublicFieldElement(canonicalLimbs: Array(repeating: 0, count: 8))
     internal static let one = PublicFieldElement(canonicalLimbs: [1, 0, 0, 0, 0, 0, 0, 0])
@@ -97,19 +101,39 @@ internal struct PublicFieldElement: Equatable, Sendable {
         return Self(canonicalLimbs: Self.subtract(Self.modulus, limbs))
     }
 
+    internal func subtracting(_ other: Self) -> Self {
+        adding(other.negated())
+    }
+
+    internal func squared() -> Self {
+        multiplied(by: self)
+    }
+
+    /// Returns the multiplicative inverse of a PUBLIC nonzero element.
+    /// Zero has no inverse. This is variable-time modular exponentiation.
+    internal func inverted() -> Self? {
+        guard self != .zero else { return nil }
+        return raised(to: Self.inverseExponent)
+    }
+
     /// Returns a square root, or nil for a non-residue. Either root may be returned.
     /// This operation is variable time and accepts public field elements only.
     internal func squareRoot() -> Self? {
+        let candidate = raised(to: Self.squareRootExponent)
+        return candidate.squared() == self ? candidate : nil
+    }
+
+    private func raised(to exponent: [UInt32]) -> Self {
         var candidate = Self.one
-        for word in Self.squareRootExponent.reversed() {
+        for word in exponent.reversed() {
             for bit in stride(from: 31, through: 0, by: -1) {
-                candidate = candidate.multiplied(by: candidate)
+                candidate = candidate.squared()
                 if word & (UInt32(1) << bit) != 0 {
                     candidate = candidate.multiplied(by: self)
                 }
             }
         }
-        return candidate.multiplied(by: candidate) == self ? candidate : nil
+        return candidate
     }
 
     private static func isLessThan(_ lhs: [UInt32], _ rhs: [UInt32]) -> Bool {

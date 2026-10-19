@@ -1,0 +1,96 @@
+COMMAND: swift test --scratch-path <scratch> --configuration release
+Building for production...
+[Planning deferred tasks]
+[30 / 51] NativeSecp256k1
+[41 / 89]
+[46 / 89]
+[50 / 89]
+[51 / 89]
+[56 / 89]
+[60 / 89]
+[64 / 89]
+[66 / 89]
+[67 / 89]
+[69 / 89] NativeSecp256k1
+[80 / 90] NativeSecp256k1Tests-product
+[82 / 93]
+[84 / 93] NativeSecp256k1Tests-product
+[89 / 93] NativeSecp256k1Tests-product
+Build complete! (6.26 sec)
+Test Suite 'All tests' started at 2026-10-19 18:43:42.039.
+Test Suite 'All tests' passed at 2026-10-19 18:43:42.039.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite "Experimental public secp256k1 point arithmetic" started.
+◇ Suite "Independent public BIP340 signature verification" started.
+◇ Suite "BIP340 encoding, message and mutation edges" started.
+◇ Suite "Public secp256k1 field and x-only validation" started.
+◇ Test "Field inverses match Python integer modular inversion, with zero rejected" started.
+◇ Test "Field subtraction wraps canonically at zero and the modulus" started.
+◇ Suite "Independent tagged SHA-256 known answers" started.
+◇ Suite "Public secp256k1 scalar encodings" started.
+◇ Test "Affine admission rejects off-curve coordinates without constructing a point" started.
+◇ Test "Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases" started.
+◇ Test "Nonzero-offset Data inputs preserve public key, signature and exact message bytes" started.
+◇ Test "Public scalar multiplication matches independent affine integer answers" started.
+◇ Test "Point addition matches independent affine integer answers" started.
+◇ Test "Signatures and keys require exact encoded lengths, without implicit sighash stripping" started.
+◇ Test "Affine Python reference fixture is pinned and complete" started.
+◇ Test "Noncanonical signature components and invalid public keys fail" started.
+◇ Test "Wrong public-key and signature lengths fail before arithmetic" started.
+◇ Test "Infinity, equal and opposite points work for different Jacobian representations" started.
+◇ Test "Nonzero-index Data slices work for signatures, keys and messages" started.
+◇ Test "All 19 official full-signature decisions, including arbitrary-length messages" started.
+◇ Test "Empty messages are supported and are not silently padded to 32 bytes" started.
+◇ Test "square roots, zero and nonresidues against Python modular exponentiation" started.
+◇ Test "Signature halves, message content and message length are all authenticated" started.
+◇ Test "pinned libsecp256k1 answers for empty, long and UTF-8/NUL tags" started.
+◇ Test "Neither parser silently pads or truncates wrong-length input" started.
+◇ Test "Python big-integer arithmetic answers across limb and modulus boundaries" started.
+◇ Test "Offset slices retain value semantics in strict and reducing parsers" started.
+◇ Test "Bit access crosses byte and word boundaries with little-endian bit numbering" started.
+◇ Test "all BIP340 public-key columns and synthetic inputs checked by two oracles" started.
+◇ Test "wrong lengths and noncanonical encodings fail without reduction" started.
+◇ Test "256-bit modular reduction agrees with independent integer boundary answers" started.
+◇ Test "all seven official BIP341 wallet TapTweak hashes" started.
+◇ Test "The field prime and group order are different encoding boundaries" started.
+◇ Test "Canonical scalars accept zero through n-1 and reject n through maximum" started.
+◇ Test "offset Data slices and retained immutable values preserve bytes" started.
+✔ Test "Affine admission rejects off-curve coordinates without constructing a point" passed after 0.006 seconds.
+✔ Test "Field subtraction wraps canonically at zero and the modulus" passed after 0.006 seconds.
+✔ Test "Neither parser silently pads or truncates wrong-length input" passed after 0.006 seconds.
+✔ Test "Offset slices retain value semantics in strict and reducing parsers" passed after 0.006 seconds.
+✔ Test "Bit access crosses byte and word boundaries with little-endian bit numbering" passed after 0.006 seconds.
+✔ Test "Infinity, equal and opposite points work for different Jacobian representations" passed after 0.006 seconds.
+✔ Test "wrong lengths and noncanonical encodings fail without reduction" passed after 0.006 seconds.
+✔ Test "pinned libsecp256k1 answers for empty, long and UTF-8/NUL tags" passed after 0.006 seconds.
+✔ Test "all seven official BIP341 wallet TapTweak hashes" passed after 0.006 seconds.
+✔ Test "The field prime and group order are different encoding boundaries" passed after 0.006 seconds.
+✔ Test "256-bit modular reduction agrees with independent integer boundary answers" passed after 0.006 seconds.
+✔ Test "Wrong public-key and signature lengths fail before arithmetic" passed after 0.006 seconds.
+✔ Test "offset Data slices and retained immutable values preserve bytes" passed after 0.006 seconds.
+✔ Test "Affine Python reference fixture is pinned and complete" passed after 0.006 seconds.
+✔ Suite "Independent tagged SHA-256 known answers" passed after 0.006 seconds.
+✔ Test "Canonical scalars accept zero through n-1 and reject n through maximum" passed after 0.007 seconds.
+✔ Suite "Public secp256k1 scalar encodings" passed after 0.007 seconds.
+✔ Test "Noncanonical signature components and invalid public keys fail" passed after 0.010 seconds.
+✔ Test "Nonzero-index Data slices work for signatures, keys and messages" passed after 0.014 seconds.
+✔ Test "Signatures and keys require exact encoded lengths, without implicit sighash stripping" passed after 0.015 seconds.
+✔ Test "Field inverses match Python integer modular inversion, with zero rejected" passed after 0.021 seconds.
+✔ Test "Empty messages are supported and are not silently padded to 32 bytes" passed after 0.030 seconds.
+✔ Test "Python big-integer arithmetic answers across limb and modulus boundaries" passed after 0.038 seconds.
+✔ Test "Point addition matches independent affine integer answers" passed after 0.054 seconds.
+✔ Test "square roots, zero and nonresidues against Python modular exponentiation" passed after 0.075 seconds.
+✔ Test "Nonzero-offset Data inputs preserve public key, signature and exact message bytes" passed after 0.097 seconds.
+✔ Test "Signature halves, message content and message length are all authenticated" passed after 0.119 seconds.
+✔ Suite "BIP340 encoding, message and mutation edges" passed after 0.119 seconds.
+✔ Test "all BIP340 public-key columns and synthetic inputs checked by two oracles" passed after 0.121 seconds.
+✔ Suite "Public secp256k1 field and x-only validation" passed after 0.121 seconds.
+✔ Test "Public scalar multiplication matches independent affine integer answers" passed after 0.123 seconds.
+✔ Suite "Experimental public secp256k1 point arithmetic" passed after 0.124 seconds.
+✔ Test "All 19 official full-signature decisions, including arbitrary-length messages" passed after 0.141 seconds.
+✔ Test "Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases" passed after 0.512 seconds.
+✔ Suite "Independent public BIP340 signature verification" passed after 0.512 seconds.
+✔ Test run with 29 tests in 6 suites passed after 0.512 seconds.

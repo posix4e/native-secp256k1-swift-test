@@ -1,0 +1,18 @@
+Independent agent review: native BIP340 public verification milestone
+
+Reviewed Jacobian coordinate invariant X/Z^2, Y/Z^3; EFD add-1998-cmo-2 and dbl-1998-cmo-2 specialized to a=0; infinity/equal/opposite branches; canonical field inputs; Fermat inverse exponent p-2 with zero rejection. No actionable discrepancy found.
+
+Independently recomputed all 55 point addition cases and 26 scalar multiplication cases using bitcoin/bips reference.py at revision 927b6de9915c9262615a6399de51b200f81e5aa4 (SHA-256 4b1d4ad9e60820df4a6d239733d52b014bc03e4c47afd757a2fe4d3b586d892c). All agreed. Separately checked all 25 inversion expectations with Python pow(value, p-2, p), rejecting zero. All agreed.
+
+Focused scalar/verifier tests: swift test --build-system native --scratch-path ../bip340-edge-build --filter PublicScalarTests|BIP340EdgeTests. Eleven tests passed in two suites. Full log: bip340-edge-tests.log.
+
+Review limits: finite public fixtures and source review; no human cryptographic audit, no constant-time or secret-operation claim, no CRAP measurement. Parent owns final full test/revision report.
+
+Reviewed/current source SHA-256:
+21740dcccc835d1120aab7bed80c4b187a4de0da6b94dc2ad7fdd56ce621dddd  Sources/NativeSecp256k1/PublicFieldElement.swift
+b939668d66df75e9082d3c0eb190e18fcfd882ba84a70626e30664ec39ac8061  Sources/NativeSecp256k1/PublicPoint.swift
+32765b0fe745deb1632c8b7bdbed9a079544969681558116f3439bd99c318dde  Sources/NativeSecp256k1/PublicScalar.swift
+64d834ee8b1798eb839065b58788af48095c91f68df5889b292b6221d00c2530  Sources/NativeSecp256k1/ExperimentalBIP340.swift
+3a8734ca8849b3b74d9709abe83458deb9c885725b619fb5d29c64c3c6fc3ae7  Tests/NativeSecp256k1Tests/PublicScalarTests.swift
+69b13d83ab0a44353542a2ed27c245c1bfa898ef4db105ed2ebd903cc941a655  Tests/NativeSecp256k1Tests/BIP340EdgeTests.swift
+9db046f678ed448af0a8eb16a87d8cd71f356f32873a9458867cac6b92211c09  Tests/NativeSecp256k1Tests/Fixtures/public-point-vectors.json
