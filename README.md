@@ -73,5 +73,8 @@ source revision and results. The [capability matrix](research/capability-scope-m
 [independent agent review](research/arithmetic-review.md), and
 [Swift Crypto fit proposal](research/swift-crypto-fit.md) describe scope and next
 steps. Saved evidence records local macOS runs; no hosted CI result is claimed.
-This private test repository contains the original experiment commit plus a
-packaging commit for these reports. The library, tests and fixtures are unchanged.
+This public research repository is open source under Apache-2.0, with separate
+fixture notices. It preserves the original experiment commit and its validation
+evidence. Later documentation commits do not change the tested library or fixtures.
+See [research safety and reporting](SECURITY.md) for the supported scope and how
+to describe a reproducible finding.
