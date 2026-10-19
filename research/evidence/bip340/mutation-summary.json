@@ -1,0 +1,62 @@
+{
+  "original_verifier_sha256": "64d834ee8b1798eb839065b58788af48095c91f68df5889b292b6221d00c2530",
+  "restored_verifier_sha256": "64d834ee8b1798eb839065b58788af48095c91f68df5889b292b6221d00c2530",
+  "shared_verifier_sha256": "64d834ee8b1798eb839065b58788af48095c91f68df5889b292b6221d00c2530",
+  "results": [
+    {
+      "name": "baseline",
+      "exit_code": 0,
+      "build_completed": true,
+      "assertion_failures": 0,
+      "first_failures": [],
+      "localLogName": "baseline.log"
+    },
+    {
+      "name": "remove-parity",
+      "exit_code": 1,
+      "build_completed": true,
+      "assertion_failures": 3,
+      "first_failures": [
+        "\u2718 Test \"Nonzero-offset Data inputs preserve public key, signature and exact message bytes\" recorded an issue at BIP340VerificationTests.swift:70:13: Expectation failed: ExperimentalBIP340.verify(signature: signature, message: message, publicKey: key) == vector.expected",
+        "\u2718 Test \"All 19 official full-signature decisions, including arbitrary-length messages\" recorded an issue at BIP340VerificationTests.swift:24:13: Expectation failed: try verifies(vector) == vector.expected",
+        "\u2718 Test \"Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases\" recorded an issue at BIP340VerificationTests.swift:37:13: Expectation failed: try verifies(vector) == vector.expected"
+      ],
+      "localLogName": "remove-parity.log"
+    },
+    {
+      "name": "remove-x-equality",
+      "exit_code": 1,
+      "build_completed": true,
+      "assertion_failures": 68,
+      "first_failures": [
+        "\u2718 Test \"Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases\" recorded an issue at BIP340VerificationTests.swift:37:13: Expectation failed: try verifies(vector) == vector.expected",
+        "\u2718 Test \"Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases\" recorded an issue at BIP340VerificationTests.swift:37:13: Expectation failed: try verifies(vector) == vector.expected",
+        "\u2718 Test \"Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases\" recorded an issue at BIP340VerificationTests.swift:37:13: Expectation failed: try verifies(vector) == vector.expected",
+        "\u2718 Test \"All 19 official full-signature decisions, including arbitrary-length messages\" recorded an issue at BIP340VerificationTests.swift:24:13: Expectation failed: try verifies(vector) == vector.expected"
+      ],
+      "localLogName": "remove-x-equality.log"
+    },
+    {
+      "name": "wrong-challenge-tag",
+      "exit_code": 1,
+      "build_completed": true,
+      "assertion_failures": 46,
+      "first_failures": [
+        "\u2718 Test \"All 19 official full-signature decisions, including arbitrary-length messages\" recorded an issue at BIP340VerificationTests.swift:24:13: Expectation failed: try verifies(vector) == vector.expected",
+        "\u2718 Test \"Nonzero-offset Data inputs preserve public key, signature and exact message bytes\" recorded an issue at BIP340VerificationTests.swift:70:13: Expectation failed: ExperimentalBIP340.verify(signature: signature, message: message, publicKey: key) == vector.expected",
+        "\u2718 Test \"Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases\" recorded an issue at BIP340VerificationTests.swift:37:13: Expectation failed: try verifies(vector) == vector.expected",
+        "\u2718 Test \"All 19 official full-signature decisions, including arbitrary-length messages\" recorded an issue at BIP340VerificationTests.swift:24:13: Expectation failed: try verifies(vector) == vector.expected"
+      ],
+      "localLogName": "wrong-challenge-tag.log"
+    },
+    {
+      "name": "restored-baseline",
+      "exit_code": 0,
+      "build_completed": true,
+      "assertion_failures": 0,
+      "first_failures": [],
+      "localLogName": "restored-baseline.log"
+    }
+  ],
+  "logStorage": "Full logs retained locally outside the source repository."
+}
