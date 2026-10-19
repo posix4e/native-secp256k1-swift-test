@@ -112,14 +112,13 @@ current backend. The previously validated Winnow fixed-vector demo remains
 pinned to the earlier package and has not been tagged or uploaded in this work.
 Its CI is not evidence for wallet use of the new verifier.
 
-Published log copies normalize local paths and trailing whitespace; local
-originals and the full simulator result bundle were retained.
+Full command output, mutation logs and the simulator result bundle are retained
+locally outside the source repository. Hosted CI retains its own run logs.
+Checked-in evidence is limited to source hashes, compact result summaries and
+reproduction instructions.
 
 Saved evidence: [validation metadata](evidence/bip340/validation-metadata.json),
-[Debug log](evidence/bip340/bip340-final-debug.log),
-[Release log](evidence/bip340/bip340-final-release.log),
 [simulator result summary](evidence/bip340/bip340-ios-summary.json),
 [coverage summary](evidence/bip340/bip340-coverage-summary.json),
-[oracle reproduction](evidence/bip340/schnorr-oracle-reproduction.log),
-[mutation summary and logs](evidence/bip340/mutation-summary.json), and
+[mutation summary](evidence/bip340/mutation-summary.json), and
 [additional agent review](evidence/bip340/bip340-scalar-verifier-review.txt).

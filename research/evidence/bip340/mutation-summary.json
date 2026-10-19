@@ -9,7 +9,7 @@
       "build_completed": true,
       "assertion_failures": 0,
       "first_failures": [],
-      "log": "mutations/baseline.log"
+      "localLogName": "baseline.log"
     },
     {
       "name": "remove-parity",
@@ -21,7 +21,7 @@
         "\u2718 Test \"All 19 official full-signature decisions, including arbitrary-length messages\" recorded an issue at BIP340VerificationTests.swift:24:13: Expectation failed: try verifies(vector) == vector.expected",
         "\u2718 Test \"Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases\" recorded an issue at BIP340VerificationTests.swift:37:13: Expectation failed: try verifies(vector) == vector.expected"
       ],
-      "log": "mutations/remove-parity.log"
+      "localLogName": "remove-parity.log"
     },
     {
       "name": "remove-x-equality",
@@ -34,7 +34,7 @@
         "\u2718 Test \"Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases\" recorded an issue at BIP340VerificationTests.swift:37:13: Expectation failed: try verifies(vector) == vector.expected",
         "\u2718 Test \"All 19 official full-signature decisions, including arbitrary-length messages\" recorded an issue at BIP340VerificationTests.swift:24:13: Expectation failed: try verifies(vector) == vector.expected"
       ],
-      "log": "mutations/remove-x-equality.log"
+      "localLogName": "remove-x-equality.log"
     },
     {
       "name": "wrong-challenge-tag",
@@ -47,7 +47,7 @@
         "\u2718 Test \"Pinned libsecp256k1 and BIP340 Python agree on 184 generated and hostile cases\" recorded an issue at BIP340VerificationTests.swift:37:13: Expectation failed: try verifies(vector) == vector.expected",
         "\u2718 Test \"All 19 official full-signature decisions, including arbitrary-length messages\" recorded an issue at BIP340VerificationTests.swift:24:13: Expectation failed: try verifies(vector) == vector.expected"
       ],
-      "log": "mutations/wrong-challenge-tag.log"
+      "localLogName": "wrong-challenge-tag.log"
     },
     {
       "name": "restored-baseline",
@@ -55,7 +55,8 @@
       "build_completed": true,
       "assertion_failures": 0,
       "first_failures": [],
-      "log": "mutations/restored-baseline.log"
+      "localLogName": "restored-baseline.log"
     }
-  ]
+  ],
+  "logStorage": "Full logs retained locally outside the source repository."
 }
