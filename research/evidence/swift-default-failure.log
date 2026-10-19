@@ -1,0 +1,11 @@
+Building for debugging...
+[Planning deferred tasks]
+/Users/posix4e/Documents/Codex/2026-10-19/winnow-swift-crypto-first-pass/outputs/NativeSecp256k1/.build/out/Products/Debug/NativeSecp256k1_NativeSecp256k1Tests.bundle: replacing existing signature
+/Users/posix4e/Documents/Codex/2026-10-19/winnow-swift-crypto-first-pass/outputs/NativeSecp256k1/.build/out/Products/Debug/NativeSecp256k1_NativeSecp256k1Tests.bundle: resource fork, Finder information, or similar detritus not allowed
+error: CodeSign /Users/posix4e/Documents/Codex/2026-10-19/winnow-swift-crypto-first-pass/outputs/NativeSecp256k1/.build/out/Products/Debug/NativeSecp256k1_NativeSecp256k1Tests.bundle failed with a nonzero exit code. Command line:     cd /Users/posix4e/Documents/Codex/2026-10-19/winnow-swift-crypto-first-pass/outputs/NativeSecp256k1
+    
+    Signing Identity:     "-"
+    
+    /usr/bin/codesign --force --sign - --entitlements /Users/posix4e/Documents/Codex/2026-10-19/winnow-swift-crypto-first-pass/outputs/NativeSecp256k1/.build/out/Intermediates.noindex/NativeSecp256k1.build/Debug/NativeSecp256k1_NativeSecp256k1Tests-b.build/NativeSecp256k1_NativeSecp256k1Tests.bundle.xcent --timestamp\=none --generate-entitlement-der /Users/posix4e/Documents/Codex/2026-10-19/winnow-swift-crypto-first-pass/outputs/NativeSecp256k1/.build/out/Products/Debug/NativeSecp256k1_NativeSecp256k1Tests.bundle
+error: Build failed
+error: fatalError

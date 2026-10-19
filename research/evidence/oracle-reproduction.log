@@ -1,0 +1,15 @@
+From https://github.com/bitcoin/bips
+ * branch            927b6de9915c9262615a6399de51b200f81e5aa4 -> FETCH_HEAD
+HEAD is now at 927b6de Address some wording nits in BIP 54 (#2313)
+From https://github.com/bitcoin-core/secp256k1
+ * branch            1a53f4961f337b4d166c25fce72ef0dc88806618 -> FETCH_HEAD
+HEAD is now at 1a53f49 Merge bitcoin-core/secp256k1#1808: Prepare for 0.7.1
+{
+  "arithmeticPairs": 2624,
+  "squareRoots": 168,
+  "xOnlyCases": 318,
+  "validXOnly": 167,
+  "invalidXOnly": 151,
+  "bips": "927b6de9915c9262615a6399de51b200f81e5aa4",
+  "secp256k1": "1a53f4961f337b4d166c25fce72ef0dc88806618"
+}

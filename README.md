@@ -66,3 +66,12 @@ See [fixture provenance](Tests/NativeSecp256k1Tests/Fixtures/README.md),
 [third-party notices](THIRD_PARTY_NOTICES.md). The next milestone is complete
 public BIP340 verification, after independent tests of point operations and
 scalar parsing/reduction. Secret operations follow their own review gate.
+
+
+The [first-pass research report](research/first-pass-report.md) records the tested
+source revision and results. The [capability matrix](research/capability-scope-matrix.md),
+[independent agent review](research/arithmetic-review.md), and
+[Swift Crypto fit proposal](research/swift-crypto-fit.md) describe scope and next
+steps. Saved evidence records local macOS runs; no hosted CI result is claimed.
+This private test repository contains the original experiment commit plus a
+packaging commit for these reports. The library, tests and fixtures are unchanged.

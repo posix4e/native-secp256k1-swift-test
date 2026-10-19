@@ -1,0 +1,44 @@
+Building for debugging...
+[0/8] /Users/posix4e/Documents/Codex/2026-10-19/winnow-swift-crypto-first-pass/outputs/NativeSecp256k1/.build/arm64-apple-macosx/debug/NativeSecp256k1PackageTests.derived/runner.swift
+[1/8] Write sources
+[4/8] Copying Fixtures
+[5/8] Write swift-version--58304C5D6DBC2206.txt
+[7/12] Compiling NativeSecp256k1 PublicFieldElement.swift
+[8/12] Emitting module NativeSecp256k1
+[9/12] Compiling NativeSecp256k1 TaggedSHA256.swift
+[10/12] Compiling NativeSecp256k1 ExperimentalXOnlyPublicKey.swift
+[11/16] Compiling NativeSecp256k1Tests TaggedSHA256Tests.swift
+[12/16] Compiling NativeSecp256k1Tests PublicFieldTests.swift
+[13/16] Emitting module NativeSecp256k1Tests
+[14/16] Compiling NativeSecp256k1Tests resource_bundle_accessor.swift
+[15/18] Compiling NativeSecp256k1PackageTests runner.swift
+[16/18] Emitting module NativeSecp256k1PackageTests
+[16/18] Write Objects.LinkFileList
+[17/18] Linking NativeSecp256k1PackageTests
+Build complete! (5.43s)
+warning: '--build-system native' has been deprecated and will be removed in a future release; please report an issue at https://github.com/swiftlang/swift-package-manager/issues if you are unable to adopt the default build system.
+Test Suite 'All tests' started at 2026-10-19 10:08:18.716.
+Test Suite 'All tests' passed at 2026-10-19 10:08:18.717.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite "Public secp256k1 field and x-only validation" started.
+◇ Suite "Independent tagged SHA-256 known answers" started.
+◇ Test "offset Data slices and retained immutable values preserve bytes" started.
+◇ Test "wrong lengths and noncanonical encodings fail without reduction" started.
+◇ Test "all BIP340 public-key columns and synthetic inputs checked by two oracles" started.
+◇ Test "Python big-integer arithmetic answers across limb and modulus boundaries" started.
+◇ Test "pinned libsecp256k1 answers for empty, long and UTF-8/NUL tags" started.
+◇ Test "all seven official BIP341 wallet TapTweak hashes" started.
+◇ Test "square roots, zero and nonresidues against Python modular exponentiation" started.
+✔ Test "wrong lengths and noncanonical encodings fail without reduction" passed after 0.001 seconds.
+✔ Test "pinned libsecp256k1 answers for empty, long and UTF-8/NUL tags" passed after 0.003 seconds.
+✔ Test "all seven official BIP341 wallet TapTweak hashes" passed after 0.004 seconds.
+✔ Suite "Independent tagged SHA-256 known answers" passed after 0.004 seconds.
+✔ Test "offset Data slices and retained immutable values preserve bytes" passed after 0.006 seconds.
+✔ Test "Python big-integer arithmetic answers across limb and modulus boundaries" passed after 0.308 seconds.
+✔ Test "square roots, zero and nonresidues against Python modular exponentiation" passed after 1.055 seconds.
+✔ Test "all BIP340 public-key columns and synthetic inputs checked by two oracles" passed after 1.710 seconds.
+✔ Suite "Public secp256k1 field and x-only validation" passed after 1.710 seconds.
+✔ Test run with 7 tests in 2 suites passed after 1.710 seconds.

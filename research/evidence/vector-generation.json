@@ -1,0 +1,9 @@
+{
+  "arithmeticPairs": 2624,
+  "squareRoots": 168,
+  "xOnlyCases": 318,
+  "validXOnly": 167,
+  "invalidXOnly": 151,
+  "bips": "927b6de9915c9262615a6399de51b200f81e5aa4",
+  "secp256k1": "1a53f4961f337b4d166c25fce72ef0dc88806618"
+}
